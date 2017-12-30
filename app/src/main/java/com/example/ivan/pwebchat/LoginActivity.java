@@ -33,7 +33,6 @@ public class LoginActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 String nomorhp = etNomorHp.getText().toString();
-                // PEMANGGILAN DATA PADA FIREBASE BERDASARKAN nomorhp
                 userRef.child( nomorhp ).addListenerForSingleValueEvent(new ValueEventListener(){
                     @Override
                     public void onDataChange(DataSnapshot dataSnapshot) {
@@ -49,9 +48,7 @@ public class LoginActivity extends AppCompatActivity {
                             SharedPreferences.Editor editor = mylocaldata.edit();
                             editor.putString("uid", user.getTelepon() );
                             editor.apply();
-                            // PINDAH KE MainActivity
-                            Intent intent = new Intent(LoginActivity.this,
-                                    MainActivity.class);
+                            Intent intent = new Intent(LoginActivity.this,MainActivity.class);
                             intent.putExtra("user",user);
                             startActivity(intent);
                             finish();
@@ -72,8 +69,7 @@ public class LoginActivity extends AppCompatActivity {
         btRegister.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(LoginActivity.this,
-                        RegisterActivity.class);
+                Intent intent = new Intent(LoginActivity.this,RegisterActivity.class);
                 startActivity(intent);
             }
         });

@@ -60,7 +60,6 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-            // PENGAKTIFAN RecyclerView MENGGUNAKAN ChatListAdapter
         rvChats = (RecyclerView)findViewById(R.id.rvchats);
         rvChats.setHasFixedSize(true);
         rvChats.setLayoutManager(new LinearLayoutManager(this));
@@ -89,11 +88,9 @@ public class MainActivity extends AppCompatActivity {
     }
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        // Handle item selection
         switch (item.getItemId()) {
             case R.id.menuUser:
-                Intent intent = new Intent(MainActivity.this,
-                        UserListActivity.class);
+                Intent intent = new Intent(MainActivity.this,UserListActivity.class);
                 startActivity(intent);
                 return true;
             case R.id.menuLogout:

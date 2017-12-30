@@ -21,6 +21,7 @@ public class ChatListAdapter extends RecyclerView.Adapter<ChatListAdapter.ChatsH
     private LayoutInflater inflater;
     private Context context;
     SharedPreferences mylocaldata;
+
     public ChatListAdapter(Context context, List<Chat> chats){
         this.context = context;
         inflater = LayoutInflater.from(context);
@@ -43,7 +44,8 @@ public class ChatListAdapter extends RecyclerView.Adapter<ChatListAdapter.ChatsH
 
     @Override
     public int getItemCount() {
-        return 0;
+
+        return chats.size();
     }
 
     public class ChatsHolder extends RecyclerView.ViewHolder {
