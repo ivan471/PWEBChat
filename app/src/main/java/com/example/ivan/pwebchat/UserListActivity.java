@@ -17,8 +17,10 @@ import java.util.ArrayList;
 import java.util.Date;
 
 public class UserListActivity extends AppCompatActivity {
+
     static FirebaseDatabase database = FirebaseDatabase.getInstance();
-    static DatabaseReference myRef = database.getReference("users");
+    static DatabaseReference myuser = database.getReference("users");
+
     ArrayList<User> users = new ArrayList<>();
     RecyclerView rvusers;
     UserListAdapter adapter;
@@ -32,10 +34,9 @@ public class UserListActivity extends AppCompatActivity {
         setContentView(R.layout.activity_user_list);
         mylocaldata = getSharedPreferences("mylocaldata", MODE_PRIVATE);
         user = getIntent().getParcelableExtra("user");
-        myRef.addValueEventListener(new ValueEventListener() {
+        myuser.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
-                users.clear();
                 for (DataSnapshot postSnapshot: dataSnapshot.getChildren()) {
                     User user = postSnapshot.getValue( User.class );
                     users.add(user);
