@@ -1,6 +1,6 @@
 package com.example.ivan.pwebchat;
 
-import android.content.Context;
+        import android.content.Context;
         import android.content.SharedPreferences;
         import android.graphics.Color;
         import android.support.v7.widget.CardView;
@@ -73,6 +73,7 @@ public class UserListAdapter extends RecyclerView.Adapter<UserListAdapter.UsersH
             this.current = current;
         }
         public void setListeners() {
+
         }
     }
 }

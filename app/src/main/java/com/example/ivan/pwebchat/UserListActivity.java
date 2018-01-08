@@ -1,13 +1,19 @@
 package com.example.ivan.pwebchat;
 
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.LinearLayout;
+
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -24,6 +30,7 @@ public class UserListActivity extends AppCompatActivity {
     ArrayList<User> users = new ArrayList<>();
     RecyclerView rvusers;
     UserListAdapter adapter;
+    LinearLayout linearLayout;
 
     User user;
     SharedPreferences mylocaldata;
@@ -53,6 +60,28 @@ public class UserListActivity extends AppCompatActivity {
         adapter = new UserListAdapter(this,users);
         rvusers.setAdapter(adapter);
 
+
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        MenuInflater inflater = getMenuInflater();
+        inflater.inflate(R.menu.main_menu, menu);
+        return true;
+    }
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+            case R.id.menuUser:
+                Intent intent = new Intent(this,UserListActivity.class);
+                startActivity(intent);
+                return true;
+            case R.id.menuLogout:
+                finish();
+                return true;
+            default:
+                return super.onOptionsItemSelected(item);
+        }
     }
 
 }

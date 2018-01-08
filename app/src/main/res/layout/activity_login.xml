@@ -21,7 +21,8 @@
         android:layout_marginRight="16dp"
         android:layout_marginLeft="16dp"
         android:layout_marginBottom="8dp"
-        android:hint="Input nomor"/>
+        android:inputType="number"
+        android:hint="masukan nomor hp"/>
     <Button
         android:id="@+id/btLogin"
         android:layout_width="match_parent"

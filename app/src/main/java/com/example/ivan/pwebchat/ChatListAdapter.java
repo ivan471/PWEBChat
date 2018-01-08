@@ -67,8 +67,7 @@ public class ChatListAdapter extends RecyclerView.Adapter<ChatListAdapter.ChatsH
             tvChat.setText(current.getPesan());
             tvSender.setText(current.getSender().getNama());
             SimpleDateFormat dformat = new SimpleDateFormat("dd/MM/yyyy HH:mm");
-            String dateString = dformat.format(new
-                    Date(Long.parseLong(current.getTanggal().toString())));
+            String dateString = dformat.format(new Date(Long.parseLong(current.getTanggal().toString())));
             tvTanggal.setText(dateString);
             String uid = mylocaldata.getString("uid","");
             if( current.getSender().getTelepon().equals( uid )){

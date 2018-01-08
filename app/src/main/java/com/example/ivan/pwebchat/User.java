@@ -45,6 +45,9 @@ public class User implements Parcelable {
         this.telepon = telepon;
     }
 
+    public User() {
+    }
+
     @Override
     public int describeContents() {
         return 0;
@@ -55,18 +58,15 @@ public class User implements Parcelable {
         dest.writeString(this.nama);
         dest.writeString(this.email);
         dest.writeString(this.telepon);
-    }
-
-    public User() {
-    }
+        }
 
     protected User(Parcel in) {
         this.nama = in.readString();
         this.email = in.readString();
         this.telepon = in.readString();
-    }
+        }
 
-    public static final Parcelable.Creator<User> CREATOR = new Parcelable.Creator<User>() {
+    public static final Creator<User> CREATOR = new Creator<User>() {
         @Override
         public User createFromParcel(Parcel source) {
             return new User(source);
