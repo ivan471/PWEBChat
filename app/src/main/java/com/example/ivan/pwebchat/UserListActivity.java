@@ -74,7 +74,11 @@ public class UserListActivity extends AppCompatActivity {
     }
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        if (item.getItemId() == R.id.menuprofil) {
+        if (item.getItemId() == R.id.menuhome) {
+            Intent intent = new Intent(UserListActivity.this, MainActivity.class);
+            intent.putExtra("user",user);
+            startActivity(intent);
+        } else if(item.getItemId() == R.id.menuprofil) {
             Intent intent = new Intent(UserListActivity.this, ProfilActivity.class);
             intent.putExtra("user",user);
             startActivity(intent);

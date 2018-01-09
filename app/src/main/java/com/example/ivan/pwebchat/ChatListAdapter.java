@@ -41,7 +41,6 @@ public class ChatListAdapter extends RecyclerView.Adapter<ChatListAdapter.ChatsH
         holder.setData(current, position);
         holder.setListeners();
     }
-
     @Override
     public int getItemCount() {
 

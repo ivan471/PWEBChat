@@ -8,11 +8,11 @@ import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.widget.TextView;
+import android.widget.Toolbar;
 
 public class ProfilActivity extends AppCompatActivity {
     TextView nama,nomor,email;
     User user;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -26,4 +26,6 @@ public class ProfilActivity extends AppCompatActivity {
         nomor.setText(user.getTelepon());
         email.setText(user.getEmail());
     }
+
+
 }

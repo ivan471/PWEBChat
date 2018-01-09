@@ -22,7 +22,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        android:background="@android:color/holo_green_light">
+        >
 
         <EditText
             android:id="@+id/etketik"
@@ -32,7 +32,7 @@
         <Button
             android:id="@+id/btsend"
             android:layout_width="70dp"
-            android:layout_height="50dp"
+            android:layout_height="wrap_content"
             android:padding="5dp"
             android:background="@drawable/ic_send_black_24dp"
             />
