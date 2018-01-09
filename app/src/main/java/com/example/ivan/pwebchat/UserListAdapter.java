@@ -8,6 +8,7 @@ package com.example.ivan.pwebchat;
         import android.view.LayoutInflater;
         import android.view.View;
         import android.view.ViewGroup;
+        import android.widget.LinearLayout;
         import android.widget.TextView;
 
         import java.text.SimpleDateFormat;
@@ -22,6 +23,7 @@ public class UserListAdapter extends RecyclerView.Adapter<UserListAdapter.UsersH
     private LayoutInflater inflater;
     private Context context;
     SharedPreferences mylocaldata;
+    RecyclerView rvusers;
 
     public UserListAdapter(Context context, List<User> users){
         this.context = context;
@@ -53,15 +55,19 @@ public class UserListAdapter extends RecyclerView.Adapter<UserListAdapter.UsersH
         View itemView;
         TextView tvuser, tvnomor, tvemail;
         CardView thisuser;
+        LinearLayout linearLayout;
         int position;
         User current;
         public UsersHolder(View itemView) {
             super(itemView);
             this.itemView = itemView;
-            thisuser = (CardView)itemView.findViewById(R.id.cvItemChat);
+            thisuser = (CardView)itemView.findViewById(R.id.cvItemUser);
             tvuser = (TextView)itemView.findViewById(R.id.tvuser);
             tvnomor = (TextView)itemView.findViewById(R.id.tvnomor);
             tvemail = (TextView)itemView.findViewById(R.id.tvemail);
+            linearLayout=(LinearLayout)itemView.findViewById(R.id.userlist);
+
+
 
         }
         public void setData(User current, int position) {
@@ -73,6 +79,17 @@ public class UserListAdapter extends RecyclerView.Adapter<UserListAdapter.UsersH
             this.current = current;
         }
         public void setListeners() {
+            thisuser.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    if (linearLayout.getVisibility() == View.GONE) {
+                        linearLayout.setVisibility(View.VISIBLE);
+                    } else {
+                        linearLayout.setVisibility(View.GONE);
+                    }
+
+                }
+            });
 
         }
     }

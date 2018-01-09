@@ -4,12 +4,14 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.widget.CardView;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.View.OnClickListener;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.LinearLayout;
@@ -31,7 +33,7 @@ public class UserListActivity extends AppCompatActivity {
     RecyclerView rvusers;
     UserListAdapter adapter;
     LinearLayout linearLayout;
-
+    CardView cardView;
     User user;
     SharedPreferences mylocaldata;
 
@@ -61,6 +63,7 @@ public class UserListActivity extends AppCompatActivity {
         rvusers.setAdapter(adapter);
 
 
+
     }
 
     @Override
@@ -71,17 +74,15 @@ public class UserListActivity extends AppCompatActivity {
     }
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        switch (item.getItemId()) {
-            case R.id.menuUser:
-                Intent intent = new Intent(this,UserListActivity.class);
-                startActivity(intent);
-                return true;
-            case R.id.menuLogout:
-                finish();
-                return true;
-            default:
-                return super.onOptionsItemSelected(item);
+        if (item.getItemId() == R.id.menuprofil) {
+            Intent intent = new Intent(UserListActivity.this, ProfilActivity.class);
+            intent.putExtra("user",user);
+            startActivity(intent);
+        } else if (item.getItemId() == R.id.menuLogout) {
+            startActivity(new Intent(UserListActivity.this, LoginActivity.class));
+            finish();
         }
+        return true;
     }
 
 }
